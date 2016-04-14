@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS Product (
+Id varchar(45) NOT NULL, 
+sku varchar(45) NOT NULL, 
+name varchar(45) DEFAULT NULL, 
+category varchar(45) DEFAULT NULL, 
+updated_on datetime NOT NULL, 
+PRIMARY KEY (Id), 
+UNIQUE KEY Id_UNIQUE (Id)) 
+ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+CREATE TABLE IF NOT EXISTS Price (
+id varchar(45) NOT NULL,  
+price decimal(10,0) NOT NULL,  
+PRIMARY KEY (id),  
+CONSTRAINT product_id FOREIGN KEY (id) REFERENCES Product (Id) 
+ON DELETE NO ACTION ON UPDATE NO ACTION) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
